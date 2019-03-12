@@ -1,0 +1,27 @@
+.titles,.span,.cons,.spans{
+	display: inline-block;
+}
+
+.titles{
+	
+	font-size: 15px;
+	color:orangered;
+
+}
+.span{
+	
+	font-size: 18px;
+	color:blueviolet;
+   margin-right: 10px;
+}
+.spans{
+	
+	font-size: 15px;
+
+}
+
+.cons{
+	
+	margin-right: 100px;
+}
+

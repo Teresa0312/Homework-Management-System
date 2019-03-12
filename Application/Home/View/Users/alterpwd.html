@@ -1,0 +1,24 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<a href="<{:U('Index/hello')}>"><button type="button" class="btn btn-info back">返回</button></a>
+		<div class="col-md-12 add">
+			<h4>修改密码</h4>
+			<hr>
+			<form class="add-form" method="post" action="__CONTROLLER__/alters">
+				<div class="control-group">
+					<label class="control-label" for="inputPwd">请输入原密码</label>
+					<input type="password" name="password" class="form-control" placeholder="密码">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputPwd">请输入新密码</label>
+					<input type="password" name="newpassword" class="form-control" placeholder="新密码">
+				</div>
+				<button type="submit" class="btn btn-success">修改</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

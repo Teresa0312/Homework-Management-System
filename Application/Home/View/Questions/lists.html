@@ -1,0 +1,76 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<div class="table-responsive">
+			<a href=<{:U( 'Questions/adds')}> ><button type="button" class="btn btn-info back" id="add">添加题目</button></a>
+			<table class="table table-hover table-striped">
+				<tr>
+					<th>ID</th>
+					<th>类型</th>
+					<th>题目</th>
+					<th>开始时间</th>
+					<th>结束时间</th>
+					<th>操作</th>
+				</tr>
+				<foreach name="data" item="val">
+					<tr id="t<{$val.id}>">
+						<td>
+							<{$val.id}>
+						</td>
+						<td>
+							<foreach name="tdata" item="v">
+								<if condition='$val.typeid eq $v["id"]'>
+									<{$v.name}>
+								</if>
+							</foreach>
+						</td>
+						<td>
+							<{$val.name}>
+						</td>
+						<td>
+							<{$val.stime}>
+						</td>
+						<td>
+							<{$val.etime}>
+						</td>
+						<td>
+							<a href=<{:U( 'Questions/updates?id='.$val[ 'id'])}> ><button class="btn btn-primary">修改</button></a>
+							<button class="btn btn-danger" onclick="deletes(<{$val.id}>)">删除</button>
+						</td>
+					</tr>
+				</foreach>
+				<tr>
+					<td align="center" colspan="5">
+						<{$page}>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</body>
+
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function deletes(id) {
+
+		if(!confirm('您确定要删除？')) {
+			return false;
+		}
+		$.ajax({
+			type: "get",
+			dataType: 'json',
+			url: "<?php echo U('dels', '', FALSE); ?>/id/" + id,
+			success: function(data) {
+				alert(data.msg);
+				var tid = '#t' + id;
+				$(tid).remove();
+				window.location.reload();
+
+			}
+		});
+	}
+</script>

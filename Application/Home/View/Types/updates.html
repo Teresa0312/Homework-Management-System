@@ -1,0 +1,24 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<a href=<{:U( 'Types/lists')}> ><button type="button" class="btn btn-info back pull-left" id="add">题目类型列表</button></a>
+
+		<div class="col-md-10 add" style="margin-top: 20px;">
+			<form class="add-form" method="post" action="__SELF__">
+				<div class="col-md-6 add">
+
+					<div class="input-group">
+						<input type="hidden" name="id" value="<{$data.id}>" />
+						<input type="text" name="name" class="form-control" value="<{$data.name}>">
+						<span class="input-group-btn">
+				    <button type="submit" class="btn btn-success" id="add">修改</button>
+				</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

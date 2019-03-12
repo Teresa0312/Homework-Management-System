@@ -1,0 +1,72 @@
+.main{
+	margin-top: 50px;
+}
+.nopadding{
+	padding: 0;
+}
+.main,.col-md-2{
+	padding: 0;
+}
+.main-left{
+	background: white;
+}
+
+.nav-left li{
+	border: 1px solid #e8e8e8;
+	cursor: pointer;
+}
+.nav-left .li-active{
+	border-left:4px solid #2AB4D7; 
+
+}
+.nav-left .li-active:hover{
+	transition: all 0.6s;
+	border-left:4px solid #E46F61; 
+	background: #F5F5F5;
+}
+
+.nav-left li a,.nav-left li span{
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+}
+
+.dropup{
+	border-left:4px solid black; 
+	background: #F5F5F5;
+}
+
+.li-hidden{
+	padding-left: 15%;
+}
+
+.dropdown{
+	margin-bottom: 0;
+}
+
+.main .dropdown a{
+	border: 0;
+	border-left: 1px solid #e8e8e8;
+	border-top: 1px solid #e8e8e8;
+}
+
+.dropdown a:hover{
+	background: #FBFBFB;
+}
+
+.frame-bor{
+	border-left: 1px solid #e8e8e8;
+}
+
+@media screen and (max-width:480px){
+	.main {
+		margin-top: 128px;
+	}
+}
+a.list-group-item{
+    border-bottom: 0;
+}
+.list-group-item {
+
+    border: 0;
+}

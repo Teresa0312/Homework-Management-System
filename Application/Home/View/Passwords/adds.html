@@ -1,0 +1,61 @@
+<layout name="layout" />
+
+<body>
+	<div class="container main">
+		<!--
+    <a href="question.html"><button type="button" class="btn btn-info" id="add">返回题目列表</button></a>
+-->
+<ul class="list-group" >
+    <li class="list-group-item" style="background:#F0F8FF;"><span class="span">题目类型:</span><span class="spans">    <foreach name='tdata' item="val">
+        <if condition="$qdata.typeid eq $val['id']">
+            <{$val.name}>
+        </if>
+        </foreach></span></li>
+			<li class="list-group-item" style="background:#F0F8FF;"><span class="span">题目内容:</span>
+				<textarea id="myEditor1" name="content" class="textarea"><{$qdata.content}></textarea>
+			</li>
+			<li class="list-group-item" style="background:#F0F8FF;"><span class="span">开始时间:</span><span class="cons"><{$qdata.stime}></span></li>
+			<li class="list-group-item" style="background:#F0F8FF;"><span class="span">结束时间:</span><span class="cons"><{$qdata.etime}></span></li>
+		</ul>
+
+		<div class="col-md-12 question">
+			<form method="post" action="__SELF__">
+				<div class="form-group">
+					
+					<textarea id="myEditor" name="content" class="textarea"></textarea>
+
+				</div>
+				<button type="submit" class="btn btn-success" id="add">提交答案</button>
+			</form>
+		</div>
+	</div>
+</body>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/My97DatePicker/WdatePicker.js"></script>
+<link href="__PUBLIC__/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="__PUBLIC__/ueditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+	UM.getEditor('myEditor', {
+		initialFrameWidth: "100%",
+		initialFrameHeight: 400,
+		toolbar: [
+			'source | undo redo | bold italic underline strikethrough | superscript subscript | forecolor backcolor | removeformat |',
+			'insertorderedlist insertunorderedlist | selectall cleardoc paragraph | fontfamily fontsize',
+			'| justifyleft justifycenter justifyright justifyjustify |',
+			'link unlink | emotion image',
+			'| horizontal print preview fullscreen', 'drafts', 'formula'
+		]
+
+	});
+	UM.getEditor('myEditor1', {
+		initialFrameWidth: "100%",
+		readonly: true,
+		toolbar: [],
+		initialFrameHeight: 8
+
+	});
+</script>
+
+</html>

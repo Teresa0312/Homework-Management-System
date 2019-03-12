@@ -1,0 +1,30 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<a href="<{:U('Users/lists')}>"><button type="button" class="btn btn-info back" id="add">返回用户列表</button></a>
+		<div class="col-md-12 add">
+			<form class="add-form" method="post" action="__SELF__">
+				<div class="control-group">
+					<label class="control-label" for="inputTrueName">请输入账号</label>
+					<input type="text" name="account" class="form-control" placeholder="账号">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputName">请输入用户名</label>
+					<input type="text" name="username" class="form-control" placeholder="用户名">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputPwd">请输入密码</label>
+					<input type="password" name="password" class="form-control" placeholder="密码">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputTrueName">请输入期数</label>
+					<input type="text" name="usernum" class="form-control" placeholder="第几期">
+				</div>
+				<button type="submit" class="btn btn-success" id="add">添加</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

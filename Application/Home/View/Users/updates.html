@@ -1,0 +1,33 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<a href="<{:U('Users/lists')}>"><button type="button" class="btn btn-info back" id="add">返回用户列表</button></a>
+		<div class="col-md-12 add">
+			<h4>修改用户</h4>
+			<hr>
+			<form class="add-form" method="post" action="__SELF__">
+				<input type="hidden" name="id" value="<{$data.id}>">
+				<div class="control-group">
+					<label class="control-label" for="inputTrueName">请输入账号</label>
+					<input type="text" name="account" class="form-control" id="inputTrueName" value="<{$data.account}>">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputName">请输入用户名</label>
+					<input type="text" name="username" class="form-control" id="inputName" value="<{$data.username}>">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputPwd">请输入密码</label>
+					<input type="password" name="password" class="form-control" id="inputPwd" value="<{$data.password}>">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputTrueName">请输入期数</label>
+					<input type="text" name="usernum" class="form-control" id="inputTrueName" value="<{$data.usernum}>">
+				</div>
+				<button type="submit" class="btn btn-success">确认修改</button>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

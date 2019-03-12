@@ -1,0 +1,118 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<div class="table-responsive">
+			<a href=<{:U( 'Users/adds')}> ><button type="button" class="btn btn-info back" id="add">添加用户</button></a>
+			<table class="table table-hover table-striped">
+				<tr>
+					<th>账号</th>
+					<th>用户名</th>
+					<th>期数</th>
+					<th>做题总数</th>
+					<th>操作</th>
+					<th>设置管理员</th>
+				</tr>
+				<foreach name="data" item="val">
+					<tr id="t<{$val.id}>">
+						<td>
+							<{$val.account}>
+						</td>
+						<td>
+							<{$val.username}>
+						</td>
+						<td>
+							<{$val.usernum}>
+						</td>
+						<td><{$val.count}></td>
+						<td>
+							<if condition="$val.flag neq 1">
+								<a href=<{:U( 'Users/updates?id='.$val[ 'id'])}> ><button class="btn btn-primary">修改</button></a>
+								<else/>
+								<span style="color:red;"> 超级管理员</span>
+							</if>
+
+							<if condition="$val.flag neq 1">
+								<button class="btn btn-danger" onclick="deletes(<{$val.id}>)">删除</button>
+							</if>
+						</td>
+						<td>
+
+							<if condition="$val.flag eq 1">
+								<span style="color:red;"> 超级管理员</span>
+							</if>
+
+							<if condition="$val.flag eq 2">
+								<button class="btn btn-warning" onclick="clears(<{$val.id}>)">撤销管理员</button>
+							</if>
+
+							<if condition="$val.flag eq 0">
+								<button class="btn btn-success" onclick="set(<{$val.id}>)">设置管理员</button>
+							</if>
+						</td>
+					</tr>
+				</foreach>
+				<tr>
+					<td align="center" colspan="5">
+						<{$page}>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</body>
+
+</html>
+<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function deletes(id) {
+
+		if(!confirm('您确定要删除？')) {
+			return false;
+		}
+		$.ajax({
+			type: "get",
+			dataType: 'json',
+			url: "<?php echo U('dels', '', FALSE); ?>/id/" + id,
+			success: function(data) {
+				alert(data.msg);
+				var tid = '#t' + id;
+				$(tid).remove();
+				window.location.reload();
+
+			}
+		});
+	}
+	
+		function set(id) {
+
+		$.ajax({
+			type: "get",
+			dataType: 'json',
+			url: "<?php echo U('sets', '', FALSE); ?>/id/" + id,
+			success: function(data) {
+				console.log(data);
+				alert(data.msg);
+				window.location.reload();
+
+			}
+		});
+	}
+
+	function clears(id) {
+
+		$.ajax({
+			type: "get",
+			dataType: 'json',
+			url: "<?php echo U('clears', '', FALSE); ?>/id/" + id,
+			success: function(data) {
+				console.log(data);
+				alert(data.msg);
+				window.location.reload();
+
+			}
+		});
+	}
+</script>

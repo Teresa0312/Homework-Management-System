@@ -1,0 +1,58 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+
+		<a href=<{:U( 'Questions/lists')}> ><button type="button" class="btn btn-info back pull-left" id="add">题目列表</button></a>
+		<div class="col-md-10 add" style="margin-top: 20px;">
+			<h4>添加题目</h4>
+			<hr>
+			<form class="add-form" method="post" action="__SELF__">
+				<div class="control-group">
+					<label class="control-label" for="inputTitle">选择题目类型</label>
+					<select class="form-control" name="typeid">
+						<foreach name="tdata" item="val">
+							<option value="<{$val.id}>">
+								<{$val.name}>
+							</option>
+						</foreach>
+					</select>
+				</div>
+				<div class="control-group">
+						<label class="control-label" for="inputEnd">题目名称</label>
+						<input type="text" name="name" class="form-control"  placeholder="题目 " " >
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputContent">请输入题目内容</label><br/>
+					<textarea id="myEditor" name="content" class="textarea"></textarea>
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputStart">请输入开始时间</label>
+					<input type="text" name="stime" class="form-control" id="inputStart" placeholder="开始时间" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+				</div>
+				<div class="control-group">
+					<label class="control-label" for="inputEnd">请输入结束时间</label>
+					<input type="text" name="etime" class="form-control" id="inputEnd" placeholder="结束时间 " onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+				</div>
+
+				<button type="submit" class="btn btn-success" id="add">添加</button>
+			</form>
+		</div>
+	</div>
+</body>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/frame.css" />
+<script language="javascript" type="text/javascript" src="__PUBLIC__/My97DatePicker/WdatePicker.js"></script>
+<link href="__PUBLIC__/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="__PUBLIC__/ueditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+	UM.getEditor('myEditor', {
+		initialFrameWidth: "100%",
+		initialFrameHeight: 400
+
+	});
+</script>
+
+</html>

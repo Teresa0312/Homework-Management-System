@@ -1,0 +1,164 @@
+<layout name="layout" />
+
+<body>
+	<div class="container-fluid">
+		<div class="table-responsive">
+
+			<foreach name="data" item="val">
+
+				<div class="list-group">
+					<a href="#" class="list-group-item active" style="height:auto">
+						<h4 class="list-group-item-heading" style="height:auto">
+            <{$val.name}>
+        </h4>
+					</a>
+					<div href="#" class="list-group-item">
+
+						<p class="list-group-item-text">
+							<span class="titles" >题目类型:<span>
+							<span class="cons">	
+							<foreach name="tdata" item="v">
+								<if condition='$val.typeid eq $v["id"]'>
+									<{$v.name}>
+								</if>
+							</foreach>
+							</span>
+							
+							<span class="titles">开始时间:</span><span class="cons"><{$val.stime}></span>
+							<span class="titles">结束时间:</span><span class="cons"><{$val.etime}></span>
+						<button onclick="gets(<{$val.id}>)" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal<{$val.id}>">查看题目详情</button>
+						</p>
+						</a>
+
+						<a href="#" class="list-group-item">
+
+							<p class="list-group-item-text">
+						
+
+						<if condition="$flag neq 1 ">
+
+							<if condition="$val.time eq 'yes' ">
+								<if condition="$val.add eq 'y'">
+									<a href=<{:U( 'Passwords/lists?id='.$val[ 'id'])}> onclick="" ><button class="btn btn-success">查看其它答案</button></a>
+									<else/>
+									<span style="color:red">请先做题</span>
+								</if>
+
+								<if condition="$val.add eq 'n' ">
+									<a href=<{:U( 'Passwords/adds?id='.$val[ 'id'])}> onclick="" ><button class="btn btn-success">添加答案</button></a>
+									<else/>
+									<span style="color:red">不可重复做题</span>
+								</if>
+								<else/>
+								<span style="color:red"><b>不在做题时间内 可查看或修改答案</b>	</span>
+								<if condition="$val.add eq 'y'">
+									<a href=<{:U( 'Passwords/lists?id='.$val[ 'id'])}> onclick="" ><button class="btn btn-success">查看其它答案</button></a>
+								</if>
+							</if>
+
+							<else/>	
+							<a href=<{:U( 'Passwords/lists?id='.$val[ 'id'])}> onclick="" ><button class="btn btn-success">查看答案</button></a>
+                            <a href=<{:U( 'Passwords/adds?id='.$val[ 'id'])}> onclick="" ><button class="btn btn-success">添加答案</button></a>
+
+						</if>	
+							</p>
+						</a>
+
+					</div>
+
+<div class="modal fade" id="myModal<{$val.id}>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel<{$val.id}>">
+              <{$val.name}>
+                </h4>
+            </div>
+            <div class="modal-body">
+            	<textarea id="myEditor<{$val.id}>" name="content" class="textarea"><{$val.content}></textarea>            	
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+               
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+    </div>
+			</foreach>
+	
+			</div>
+
+		</div>
+			<label style="text-align:center;width:100%;">
+				<{$page}>
+			</label>
+			
+	
+</div>			
+</body>
+
+</html>
+
+<script language="javascript" type="text/javascript" src="__PUBLIC__/My97DatePicker/WdatePicker.js"></script>
+<link href="__PUBLIC__/ueditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="__PUBLIC__/ueditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/ueditor/umeditor.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script>
+
+	
+		
+function gets(id){
+	var ids='myEditor'+id;
+	UM.getEditor(ids, {
+		initialFrameWidth: "100%",
+		readonly: true,
+		toolbar: [],
+		initialFrameHeight: 8
+
+	});	
+}
+			
+			
+	/*	public function chenckAdd(id){
+					return false; 
+					if(!confirm('您确定要删除？')){
+							  return false;
+							}
+						    $.ajax({
+							type:"get",
+							dataType:'json',
+							url:"<?php echo U('dels', '', FALSE); ?>/id/"+id,			
+							success:function(data){
+								alert(data.msg);
+								var tid='#t'+id;			
+								$(tid).remove();	
+								window.location.reload();						   
+					}
+				});			
+				}
+				
+					public function chenckAll(id){
+					
+						if(!confirm('您确定要删除？')){
+							  return false;
+							}
+						    $.ajax({
+							type:"get",
+							dataType:'json',
+							url:"<?php echo U('dels', '', FALSE); ?>/id/"+id,			
+							success:function(data){
+								alert(data.msg);
+								var tid='#t'+id;			
+								$(tid).remove();	
+								window.location.reload();						   
+					}
+				});				
+				}
+				*/
+</script>

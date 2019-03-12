@@ -1,0 +1,126 @@
+body{
+    background: #ECEFF3;
+    padding: 2rem;
+}
+
+
+
+.row{
+    margin-top: 8%;
+}
+
+.m-top{
+    margin-top: 5px;
+}
+
+.container-fluid{
+    padding: 2rem;
+}
+
+.row .content{
+    padding-left: 1.5rem;
+    background: white;
+}
+
+.row .content .left-icon {
+    text-align: center;
+    border-radius: 50%;
+}
+.w30 {
+    width: 30%;
+    padding-top: 4rem;
+}
+.pull-left {
+    float: left!important;
+}
+.row .content .left-icon span {
+    line-height: 4.7rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.circle{
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.blue {
+    background-color: #2abbeb;
+}
+
+.w70 {
+    width: 70%;
+}
+.row .content .right-title {
+    color: #666666;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.content .right-title .title-content {
+    width: 130px;
+}
+.content .right-title .number {
+    font-size: 4rem;
+    margin-top: 0px;
+}
+.content .right-title .title-content .btn-default {
+    background-color: #f5f8f9;
+}
+
+.nopadding{
+    padding: 0;
+    text-align: left;
+}
+
+.table{
+    background: white;
+}
+
+.main hr{
+    border-top: 1px solid #1598D8;
+}
+
+.question{
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background: white;
+    color: #333333;
+    border-radius: 4px;
+}
+.question form label{
+    display: none;
+}
+.textarea{
+    resize: none;
+    width: 80%;
+    height: 150px;
+}
+
+.show-ans{
+    color: red;
+}
+
+.show-ans:hover{
+    color: red;
+}
+
+.que-time{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.back{
+    margin-bottom: 15px;
+}
+.add-form .control-group{
+    margin-bottom: 15px;
+}
+
+.add{
+    background: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
